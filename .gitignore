@@ -1,0 +1,9 @@
+/.hg/
+/Cache/
+/channels/
+/*.hgignore
+/*.chm
+/*.bak
+/*.chw
+/Kte-Readme.txt
+/profiles.ini
