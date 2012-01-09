@@ -29,7 +29,7 @@ alias writeprofile {
 }
 
 ;Read profile
-on $*:TEXT:/\?\? /S:*: {
+on $*:TEXT:/^\?\? /S:*: {
   if ($getproflines($2) == $null) {
     .notice $nick No record found. 
   }
@@ -44,7 +44,7 @@ on $*:TEXT:/\?\? /S:*: {
 }
 
 ;Write profile
-on $*:TEXT:/\!learn /S:*: {
+on $*:TEXT:/^\!learn /S:*: {
   if ($getproflines($2) == $null) {
     $dex( msg $chan Creating new profile for $2 $+ , and assigned to $nick $+ . Timestamp: $fulldate )
     .writeini -n profiles.ini $2 1 $3-
@@ -69,13 +69,13 @@ on $*:TEXT:/\!learn /S:*: {
 }
 
 ;Remove profile
-on $*:TEXT:/\!forget /S:*: {
+on $*:TEXT:/^\!forget /S:*: {
   if ($getproflines($2) == $null) {
     .notice $nick No such profile exists.
   }
   else {
     $dex( msg $chan Running permissions check.. )
-    if ($readini(profiles.ini,n,$2,SetBy) != $nick) || ($nick != %rbmaster) { 
+    if ($readini(profiles.ini,n,$2,SetBy) != $nick) && ($nick != %rbmaster) { 
       $dex( msg $chan Deined profile delete for $nick on $2 owned by $readini(profiles.ini,n,$2,SetBy) )
       notice $nick No permission. Only $readini(profiles.ini,n,$2,SetBy) can change that.
       halt
