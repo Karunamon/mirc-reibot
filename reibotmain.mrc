@@ -51,5 +51,14 @@ on *:TEXT:Rei,*:#:{
     msg $chan Set to mode Ω 
     set %rbdebug 0
   }
+  ;  elseif (raw command mode isin $2-) && $ismaster($nick) {
+  ;    msg $chan Ready.
+  ;    set %rbraw 1
+  ;  }  
   else msg $chan What?
 }
+
+;Raw commanda handler
+;on *:TEXT:Rei,*:#:{
+;if $ismaster($nick) && ( %rbraw == 1 ) {
+;eval 
