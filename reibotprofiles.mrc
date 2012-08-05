@@ -31,7 +31,7 @@ alias writeprofile {
 ;Read profile
 on $*:TEXT:/^\?\? /S:*: {
   if ($getproflines($2) == $null) {
-    .notice $nick No record found. 
+    .msg $nick No record found. 
   }
   else {
     var %line = 1
@@ -50,12 +50,12 @@ on $*:TEXT:/^\!learn /S:*: {
     .writeini -n profiles.ini $2 1 $3-
     .writeini -n profiles.ini $2 SetBy $nick
     .writeini -n profiles.ini $2 SetTime $fulldate
-    .notice $nick New profile added successfully.
+    .msg $nick New profile added successfully.
   }
   else {
     if ($readini(profiles.ini,n,$2,SetBy) != $nick) && ($nick != %rbmaster)  {
       $dex( msg $chan Denied profile write for $nick on $2 owned by $readini(profiles.ini,n,$2,SetBy) )
-      notice $nick No permission. Only $readini(profiles.ini,n,$2,SetBy) can change that.
+      .msg $nick No permission. Only $readini(profiles.ini,n,$2,SetBy) can change that.
       return
     }
     $dex( msg $chan Profile already exists for $2 $+ , append mode selected )
@@ -64,24 +64,24 @@ on $*:TEXT:/^\!learn /S:*: {
     $dex( msg $chan Inserting line for $2 at position %line $+ . Timestamp: $fulldate )
     writeini -n profiles.ini $2 %line $3-
     writeini -n profiles.ini $2 SetTime $fulldate
-    .notice $nick New line accepted.
+    .msg $nick New line accepted.
   }
 }
 
 ;Remove profile
 on $*:TEXT:/^\!forget /S:*: {
   if ($getproflines($2) == $null) {
-    .notice $nick No such profile exists.
+    .msg $nick No such profile exists.
   }
   else {
     $dex( msg $chan Running permissions check.. )
     if ($readini(profiles.ini,n,$2,SetBy) != $nick) && ($nick != %rbmaster) { 
       $dex( msg $chan Deined profile delete for $nick on $2 owned by $readini(profiles.ini,n,$2,SetBy) )
-      notice $nick No permission. Only $readini(profiles.ini,n,$2,SetBy) can change that.
+      .msg $nick No permission. Only $readini(profiles.ini,n,$2,SetBy) can change that.
       halt
     }
     $dex( msg $chan Removing profile for $2 $+ , requested by $nick )
     remini -n profiles.ini $2
-    .notice $nick Profile deleted.
+    .msg $nick Profile deleted.
   }
 }

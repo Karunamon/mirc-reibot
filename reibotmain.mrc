@@ -7,6 +7,11 @@ on *:LOAD:{
   $rbinit()
 }
 
+;Let's load the syntax highlighting plgin
+on *:START:{
+  dll ./medit.dll Load
+}
+
 ;CTCP Identity
 ctcp *:VERSION: {
   .echo -a Recieved VERSION request from $nick $+ @ $+ $site
@@ -45,12 +50,13 @@ on *:TEXT:Rei,*:#:{
   elseif (debug mode alpha isin $2-) && $ismaster($nick)  {
     msg $chan Set to mode α 
     set %rbdebug 1
-    .notice $nick WARNING! Debug mode is a SERIOUS security hole.ANY AND ALLtext preceeded by the attention string will be evaluated. DISABLE WHEN DONE!!! 
+    .msg $nick WARNING! Debug mode is a SERIOUS security hole.ANY AND ALLtext preceeded by the attention string will be evaluated. DISABLE WHEN DONE!!! 
   }
   elseif (debug mode omega isin $2-) && $ismaster($nick) {
     msg $chan Set to mode Ω 
     set %rbdebug 0
   }
+  ; THIS IS A BAD IDEA.
   ;  elseif (raw command mode isin $2-) && $ismaster($nick) {
   ;    msg $chan Ready.
   ;    set %rbraw 1
@@ -58,6 +64,7 @@ on *:TEXT:Rei,*:#:{
   else msg $chan What?
 }
 
+; And this is an even worse one.
 ;Raw command handler
 ;on *:TEXT:Rei,*:#:{
 ;if $ismaster($nick) && ( %rbraw == 1 ) {
