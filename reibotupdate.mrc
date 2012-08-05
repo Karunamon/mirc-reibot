@@ -14,14 +14,14 @@ alias stashreg {
 
 ;Rewrite our registration data
 alias writereg  {
-  writeini -n mirc.ini user username %reguser
-  writeini -n mirc.ini user license %reglicense
-  writeini -n mirc.ini use validated %regvalid 
+  //writeini -n mirc.ini user username %reguser
+  //writeini -n mirc.ini user license %reglicense
+  //writeini -n mirc.ini use validated %regvalid 
 }
 
 ;Kick off a git fetch
 alias startupdate {
-  .msg $chan Checking for update..
+  //msg %rbchan Checking for update..
   $dmmsg ( Starting update )
   $dmmsg ( 1: Checking for update.. )
   run getupdate.bat
@@ -32,14 +32,14 @@ alias startupdate {
 ;Examine the output
 alias verifyupdate { 
   if ($read(updatelog.log, r, \[up to date\].*master) != $null) {
-    $dex($catnick(updatelog.log $chan))
-    .msg $chan No update found.
+    $dex($catnick(updatelog.log %rbchan))
+    //msg %chan No update found.
     $dmmsg( No update found. )
   }
   else {
     $dmmsg( Found update.)
-    .msg $chan Found update.
-    $dex($catnick(updatelog.log $chan))
+    //msg %rbchan Found update.
+    $dex($catnick(updatelog.log %rbchan))
     runupdate
   }
 }
@@ -48,26 +48,18 @@ alias verifyupdate {
 alias runupdate {
   stashreg
   $dmmsg( 2: Running hard update )
-  .msg $chan Running hard update.
-  .msg $chan Please do not attempt to use me for the next 30 seconds.
+  //msg %rbchan Running hard update.
+  //msg %rbchan Please do not attempt to use me for the next 30 seconds.
   run runupdate.bat
   .timer 1 30 reboot
 }
 
 ;Must have been updated, let's reboot so we're in a consistent state.
 alias reboot {
-  .msg $chan Rebooting!
+  //msg %rbchan Rebooting!
   writereg
   run reboot.bat
   exit
-}
-
-;Listener for update commands
-on *:TEXT:Rei,*:#:{
-  if (update yourself isin $2-) && $ismaster($nick) {
-    startupdate
-  }
-  else { msg $chan Lol no. }
 }
 
 CTCP *:UPDATE:* {
