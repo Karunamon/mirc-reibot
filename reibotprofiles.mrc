@@ -53,8 +53,8 @@ on $*:TEXT:/^\!learn /S:*: {
     .notice $nick New profile added successfully.
   }
   else {
-    if ($readini(profiles.ini,n,$2,SetBy) != $nick) || ($nick != %rbmaster)  {
-      $dex( Deined profile write for $nick on $2 owned by $readini(profiles.ini,n,$2,SetBy) )
+    if ($readini(profiles.ini,n,$2,SetBy) != $nick) && ($nick != %rbmaster)  {
+      $dex( msg $chan Denied profile write for $nick on $2 owned by $readini(profiles.ini,n,$2,SetBy) )
       notice $nick No permission. Only $readini(profiles.ini,n,$2,SetBy) can change that.
       return
     }

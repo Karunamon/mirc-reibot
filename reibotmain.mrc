@@ -7,7 +7,7 @@ on *:LOAD:{
   $rbinit()
 }
 
-;CTCP Identity. Fucking mIRC..
+;CTCP Identity
 ctcp *:VERSION: {
   .echo -a Recieved VERSION request from $nick $+ @ $+ $site
   .ctcpreply $nick VERSION %rbproduct %rbversion
@@ -58,7 +58,7 @@ on *:TEXT:Rei,*:#:{
   else msg $chan What?
 }
 
-;Raw commanda handler
+;Raw command handler
 ;on *:TEXT:Rei,*:#:{
 ;if $ismaster($nick) && ( %rbraw == 1 ) {
 ;eval 
