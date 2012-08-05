@@ -21,6 +21,7 @@ alias writereg  {
 
 ;Kick off a git fetch
 alias startupdate {
+  remove updatelog.log
   //msg %rbchan Checking for update..
   $dmmsg ( Starting update )
   $dmmsg ( 1: Checking for update.. )
