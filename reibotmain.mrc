@@ -4,12 +4,19 @@
 
 ;Initialization handler
 on *:LOAD:{
-  $rbinit()
+  rbinit
 }
 
-;Let's load the syntax highlighting plgin
+;Startup routines
+;Load the syntax highlighting plugin and run light init functions
 on *:START:{
-  dll ./medit.dll Load
+  dll medit.dll Load
+  rblightinit
+}
+
+;Join our channel on connect
+on *:CONNECT:{
+  join %rbchan
 }
 
 ;CTCP Identity
@@ -50,7 +57,7 @@ on *:TEXT:Rei,*:#:{
   elseif (debug mode alpha isin $2-) && $ismaster($nick)  {
     msg $chan Set to mode α 
     set %rbdebug 1
-    .msg $nick WARNING! Debug mode is a SERIOUS security hole.ANY AND ALLtext preceeded by the attention string will be evaluated. DISABLE WHEN DONE!!! 
+    $dmmsg( WARNING! Debug mode is a SERIOUS security hole.ANY AND ALLtext preceeded by the attention string will be evaluated. DISABLE WHEN DONE!!! ) 
   }
   elseif (debug mode omega isin $2-) && $ismaster($nick) {
     msg $chan Set to mode Ω 
@@ -61,11 +68,13 @@ on *:TEXT:Rei,*:#:{
   ;    msg $chan Ready.
   ;    set %rbraw 1
   ;  }  
-  else msg $chan What?
-}
+  else {
+    $dsay( Command not recognized )
+    msg $chan What?
+  }
 
-; And this is an even worse one.
-;Raw command handler
-;on *:TEXT:Rei,*:#:{
-;if $ismaster($nick) && ( %rbraw == 1 ) {
-;eval 
+  ; And this is an even worse one.
+  ;Raw command handler
+  ;on *:TEXT:Rei,*:#:{
+  ;if $ismaster($nick) && ( %rbraw == 1 ) {
+  ;eval 
