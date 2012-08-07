@@ -3,23 +3,22 @@
 ;################
 
 ;Stash registration information into a file so a mirc.ini refresh doesn't unregister us.
+;Using set because var didn't play nicely with write for some reason..
 alias stashreg {
-  var %reguser = $readini(mirc.ini,n,user,username)
-  var %reglicense = $readini(mirc.ini,n,user,license)
-  var %regvalid = $readini(mirc.ini,n,user,validated)
-  ;writeini -n registration.ini user username %reguser
-  ;writeini -n registration.ini user license %reglicense
-  ;writeini -n registration.ini user validated %regvalid
+  ;Grab the reg info from the INI
+  set %reguser $readini(mirc.ini,n,user,username)
+  set %reglicense $readini(mirc.ini,n,user,license)
+  set %regvalid $readini(mirc.ini,n,user,validated)
+  ;Construct a batch file
+  write registration.bat inifile mirc.ini [user] username= $+ $eval(%reguser)
+  write registration.bat inifile mirc.ini [user] license= $+ $eval(%reglicense)
+  write registration.Bat inifile mirc.ini [user] validated= $+ $eval(%regvalid)
+  unset %reguser
+  unset %reglicense
+  unset %regvalid
 }
 
-;Rewrite our registration data
-alias writereg  {
-  //writeini -n mirc.ini user username %reguser
-  //writeini -n mirc.ini user license %reglicense
-  //writeini -n mirc.ini use validated %regvalid 
-}
-
-;Kick off a git fetch
+;Kick off the update
 alias startupdate {
   remove updatelog.log
   //msg %rbchan Checking for update..
@@ -49,17 +48,8 @@ alias verifyupdate {
 alias runupdate {
   stashreg
   $dmmsg( 2: Running hard update )
-  //msg %rbchan Running hard update.
-  //msg %rbchan Please do not attempt to use me for the next 30 seconds.
+  //msg %rbchan Running update. I'll be back in a few seconds.
   run runupdate.bat
-  .timer 1 30 reboot
-}
-
-;Must have been updated, let's reboot so we're in a consistent state.
-alias reboot {
-  //msg %rbchan Rebooting!
-  writereg
-  run reboot.bat
   exit
 }
 
