@@ -31,7 +31,8 @@ ReiBot uses mIRC's INI handler to manage the definitions file - We've tested it 
 * Auto update system
 
 This allows you to keep Reibot up to date with this git repo or any other. Simply invoke /startupdate from Reibot or just say "Rei, update yourself" in the channel.
-You can use your own git repo simply by changing what your origin/master points to.
+You can use your own git repo simply by changing what your origin/master points to. Needless to say, you must have git installed for this to work.
+
 
 Planned Features
 ----------------
@@ -58,5 +59,9 @@ Installing
 ----------
 
 1.  Make a fresh install of mIRC version 7 or greater. I suggest using c:\Reibot, but anything will work.
-2.  Clone this repository into the mIRC folder.
+2.  Grab the .zip download, and extract it into your mIRC folder.
 3.  **(Important!)** Edit the aliases file to change the bot's master control password BEFORE starting for the first time.
+
+License
+-------
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">ReiBot</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://tkware.info" property="cc:attributionName" rel="cc:attributionURL">Michael Parks</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/Karunamon/Reibot/" rel="dct:source">https://github.com/Karunamon/Reibot/</a>.
