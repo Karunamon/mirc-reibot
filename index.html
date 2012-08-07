@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Reibot by Karunamon</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/Karunamon/Reibot">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/Karunamon/Reibot/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/Karunamon/Reibot/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Reibot</h1>
+          <p>A mIRC based IRC channel bot for role playing and more!</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/Karunamon">Karunamon</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>ReiBot for mIRC 7.x</h1>
+
+<p>ReiBot is a mIRC-based IRC bot (but more accurately, a collection of scripts which, when combined, has bot-like behavior). Since mIRC provides a robust event handling system for everything from messages to socket connections, as well as a powerful scripting language, it is ideal for writing an automated IRC bot.</p>
+
+<h2>Current Features</h2>
+
+<ul>
+<li>A definitions system</li>
+</ul><p>A method to retrieve information based on triggers. For instance, if you want to save your channel rules to recall later, the conversation would look like:</p>
+
+<pre><code>&lt;You&gt; !learn Rules Don't whiz on the electric fence!
+&lt;ReiBot&gt; *Profile Stored*
+&lt;You&gt; ?? Rules
+&lt;ReiBot&gt; Don't whiz on the electric fence!
+</code></pre>
+
+<p>ReiBot was originally written to store character profiles for a role playing channel - hence why the word Profile is used; but don't let this stop you from using it for whatever you want!</p>
+
+<p>There is also a script included which can import definitions from Icel, an Eggdrop TCL script with a similar definitions system.</p>
+
+<p>ReiBot uses mIRC's INI handler to manage the definitions file - We've tested it with more than 500 profiles and the system remains responsive. The format looks like:</p>
+
+<pre><code>[Profile Name]
+1=First Line of the profile
+2=Second line of the profile.. and so on
+WhoSet=Nickname of who did the !learn
+SetTime=Last updated datestamp in long format
+</code></pre>
+
+<h2>Planned Features</h2>
+
+<p>ReiBot is in active use by me, and therefore active development. Here's what's on my radar.</p>
+
+<p>Priority 1 is probably going to be in the next release. Priority 5 will be done in my copious free time :)</p>
+
+<ul>
+<li>A public commands system (Priority: 1)</li>
+</ul><p>For channel management, etc. If you can do it with private messages to ChanServ, you'll be able to do it in channel with a simple trigger. This system is going to be coded around Anope services intially (as that's what my home IRC network uses), but I hope to make it compatible with most services backends out there.</p>
+
+<ul>
+<li>Remote Access (Priority: 3)</li>
+</ul><p>Remotely access files and perform actions on the host system.</p>
+
+<ul>
+<li><p>Markov-chain chatterbot (Priority: 5)</p></li>
+<li><p>Note system (Priority: 2)</p></li>
+<li><p>Channel Games (Priority: 5)</p></li>
+</ul><h2>Installing</h2>
+
+<ol>
+<li> Make a fresh install of mIRC version 7 or greater. I suggest using c:\Reibot, but anything will work.</li>
+<li> Clone this repository into the mIRC folder.</li>
+<li> Change your mIRC options as you see fit</li>
+<li> <strong>(Important!)</strong> Edit the aliases file to change the bot's master control password! </li>
+</ol>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+    
+  </body>
+</html>
