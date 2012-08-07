@@ -22,8 +22,8 @@ alias stashreg {
 alias startupdate {
   remove updatelog.log
   //msg %rbchan Checking for update..
-  $dmmsg ( Starting update )
-  $dmmsg ( 1: Checking for update.. )
+  $dmmsg( Starting update )
+  $dmmsg( 1: Checking for update.. )
   run getupdate.bat
   ;Wait to allow slow internet connections to succeed.
   .timer 1 7 verifyupdate
@@ -33,7 +33,7 @@ alias startupdate {
 alias verifyupdate { 
   if ($read(updatelog.log, r, \[up to date\].*master) != $null) {
     $dex($catnick(updatelog.log %rbchan))
-    //msg %chan No update found.
+    //msg %rbchan No update found.
     $dmmsg( No update found. )
   }
   else {
