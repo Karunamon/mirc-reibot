@@ -76,7 +76,7 @@ I wouldn't be here without standing on the shoulders of giants:
 * FiberOPtics  (mirc.fiberoptics@gmail.com) - mIRC download script, used with the Icel importer
 * Reko Tiira (reko@tiira.net) - mIRC SQLite backend. Soon to be handling all the things. All of them.
 * All the folks on #deviant at irc.frogbox.es - For much inspiration!
-* Ayano - For many more great ideas, for keeping me going, for being more awesome than any one person has the right to be :)
+* Leila - For many more great ideas, for keeping me going, for being more awesome than any one person has the right to be :)
 
 License
 -------
