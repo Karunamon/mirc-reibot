@@ -58,9 +58,17 @@ Remotely access files and perform actions on the host system.
 Installing
 ----------
 
-1.  Make a fresh install of mIRC version 7 or greater. I suggest using c:\Reibot, but anything will work.
-2.  Grab the .zip download, and extract it into your mIRC folder.
+1.  Grab the git repo, and extract it to a folder of your choice.
+2.  Just add mIRC! (the exe, that is)
 3.  **(Important!)** Edit the aliases file to change the bot's master control password BEFORE starting for the first time.
+
+Special Thanks
+------
+
+* Horst Schaeffer (http://www.horstmuc.de) - Inifile, basically makes the update system work.
+* FiberOPtics  (mirc.fiberoptics@gmail.com) - mIRC download script, used with the Icel importer
+* All the folks on #deviant at irc.frogbox.es - For much inspiration!
+* Ayano - For many more great ideas, for keeping me going, for being more awesome than any one person has the right to be :)
 
 License
 -------
