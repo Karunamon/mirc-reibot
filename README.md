@@ -41,6 +41,11 @@ ReiBot is in active use by me, and therefore active development. Here's what's o
 
 Priority 1 is probably going to be in the next release. Priority 5 will be done in my copious free time :)
 
+
+* SQLite Backend (Priority: -1)
+
+For getting away from mIRC's dodgy INI-based "database" system.
+
 * A public commands system (Priority: 1)
 
 For channel management, etc. If you can do it with private messages to ChanServ, you'll be able to do it in channel with a simple trigger. This system is going to be coded around Anope services intially (as that's what my home IRC network uses), but I hope to make it compatible with most services backends out there.
@@ -49,11 +54,11 @@ For channel management, etc. If you can do it with private messages to ChanServ,
 
 Remotely access files and perform actions on the host system.
 
-* Markov-chain chatterbot (Priority: 5)
-
 * Note system (Priority: 2)
 
 * Channel Games (Priority: 5)
+
+* Markov-chain chatterbot (Priority: Unlikely.)
 
 Installing
 ----------
