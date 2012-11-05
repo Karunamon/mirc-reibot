@@ -1,6 +1,14 @@
 ReiBot for mIRC 7.x
 ===================
 
+DEPRECATED
+-------------------
+Reibot for mIRC will recieve no further updates. You should instead check out the Ruby version at http://github.com/Karunamon/rbreibot - it has all the same functions and is under active development!
+
+This version is still fully functional as of mIRC 7.27.
+
+
+
 ReiBot is a mIRC-based IRC bot (but more accurately, a collection of scripts which, when combined, has bot-like behavior). Since mIRC provides a robust event handling system for everything from messages to socket connections, as well as a powerful scripting language, it is ideal for writing an automated IRC bot.
 
 Current Features
